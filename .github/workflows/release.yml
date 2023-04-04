@@ -1,0 +1,32 @@
+name: Release to JitPack
+
+on:
+  release:
+    types: [published]  # Trigger this workflow when a new release is published
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch all history for all branches and tags (needed for JitPack to work)
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'  # Use AdoptOpenJDK distribution
+          java-version: 11  # Change this to your desired JDK version
+
+      - name: Build and install without tests
+        run: mvn install -DskipTests
+
+      - name: Publish to JitPack
+        run: |
+          echo "Publishing to JitPack..."
+          git fetch --tags
+          VERSION=$(git describe --tags --abbrev=0)
+          echo "Detected version: $VERSION"
+          curl -sL "https://jitpack.io/com/github/$GITHUB_REPOSITORY/$VERSION/build.log"

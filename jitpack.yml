@@ -1,0 +1,5 @@
+jdk:
+  - openjdk17  # Change this to your desired JDK version
+
+install:
+  - mvn install -DskipTests
