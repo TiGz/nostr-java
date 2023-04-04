@@ -85,6 +85,8 @@ public class NostrExamples {
             Identity identity = new Identity(new PrivateKey("04a7dd63ef4dfd4ab95ff8c1576b1d252831a0c53f13657d959a199b4de4b670"), new PublicKey("99cf4426cb4507688ff151a760ec098ff78af3cfcdcb6e74fa9c9ed76cba43fa"));
             Client client = new Client("nostr-java", identity, Map.of("brb", "brb.io", "wine", "nostr.wine", "ZBD", "nostr.zebedee.cloud"));
 
+            //Client client = new Client("nostr-java", identity, Map.of("localhost", "localhost:8080"));
+
             ExecutorService executor = Executors.newFixedThreadPool(10);
 
             executor.submit(() -> {

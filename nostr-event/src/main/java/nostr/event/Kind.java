@@ -30,7 +30,7 @@ public enum Kind {
     public int getValue() {
         return value;
     }
-    
+
     public static Kind valueOf(int value) {
         switch(value) {
             case 0 -> {
