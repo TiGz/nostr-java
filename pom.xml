@@ -5,7 +5,7 @@
 
     <groupId>com.github.tigz</groupId>
     <artifactId>nostr-java</artifactId>
-    <version>0.1</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
